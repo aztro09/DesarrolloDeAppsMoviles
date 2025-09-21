@@ -1,6 +1,5 @@
 # DesarrolloDeAppsMoviles
-> De: GALICIA RODRIGUEZ ANDRES DAVID
-Tareas y practicas realizadas durante el curso
+> De: GALICIA RODRIGUEZ ANDRES DAVID | Tareas y practicas realizadas durante el curso
 
 ## Tareas 
 ## Practicas
