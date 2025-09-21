@@ -9,3 +9,9 @@ Posteriormente se pide la instalacion de varias dependencias, en este caso Node.
 Ingresamos a la pagina oficial de [Flutter](https://docs.flutter.dev/) y seleccionamos el boton que dice "Get Started", selccionamos "Windows" y luego "Android". Finalmente seguimos las instrucciones de la pagina:
 <img width="1502" height="809" alt="image" src="https://github.com/user-attachments/assets/efdeb8b5-b200-44bf-8e61-14e3f92ad33f" />
 
+### Instalacion de Docker
+Para docker ingresaremos al link de las instrucciones para descargar [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/). En mi caso, una vez dentro de la pagina se seleccionara el .exe para la version de Docker x86-64:
+<img width="335" height="52" alt="image" src="https://github.com/user-attachments/assets/2daad584-0968-4971-8fea-133f1ef4ca25" />
+
+
+### Instalacion de Maven
