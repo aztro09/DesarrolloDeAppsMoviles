@@ -1,6 +1,6 @@
 # Detalles de la Practica 1
 
-##Ejercicio 1
+## Ejercicio 1
 Se instalo Android Studio siguiendo las instrucciones de la pagina oficial:
 <img width="930" height="587" alt="image" src="https://github.com/user-attachments/assets/78bd15b2-aa3c-46fb-a158-2ec756cbf5fd" />
 
