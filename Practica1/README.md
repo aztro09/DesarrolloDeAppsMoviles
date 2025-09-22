@@ -1,5 +1,17 @@
 # Detalles de la Practica 1
 
+## Vistas de la App
+<img width="383" height="824" alt="image" src="https://github.com/user-attachments/assets/ef3a212b-dbd2-4401-96f0-9cb2af29f7b6" />
+<img width="382" height="831" alt="image" src="https://github.com/user-attachments/assets/b9ef3972-8726-4b6d-918b-ffc2c704b5aa" /> <img width="382" height="836" alt="image" src="https://github.com/user-attachments/assets/f101907e-c67d-4f70-867e-76dd84860cc1" />
+<img width="390" height="834" alt="image" src="https://github.com/user-attachments/assets/bb65c3dc-b769-473f-bea0-7fa003a96e5f" />
+<img width="384" height="842" alt="image" src="https://github.com/user-attachments/assets/bb6e6eee-43cb-4a9b-86cf-839f97aedf20" />
+<img width="381" height="847" alt="image" src="https://github.com/user-attachments/assets/b3de9ea0-c172-4910-94ea-13a72a095c3a" />
+
+
+
+
+
+
 ## Ejercicio 1
 Se instalo Android Studio siguiendo las instrucciones de la pagina oficial:
 <img width="930" height="587" alt="image" src="https://github.com/user-attachments/assets/78bd15b2-aa3c-46fb-a158-2ec756cbf5fd" />
