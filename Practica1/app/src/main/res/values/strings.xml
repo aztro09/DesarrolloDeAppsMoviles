@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Practica1</string>
+    <string name="instructions">Para acceder y visualizar el funcionamiento de cada Fragment, usa el navegador de la parte inferior dando click en cualquier icono para ser dirigido
+        al fragment correspondiente</string>
+    <string name="home_welcome">Bienvenido a la App de UI, aqui se mostraran los diversos tipos de elementos para una App Movil</string>
+    <string name="title_home">👋 Bienvenido</string>
+    <string name="title_textfields">TextFields</string>
+    <string name="title_buttons">Botones</string>
+    <string name="title_info">ℹ️ Elementos de Informacion</string>
+    <string name="title_lists">Listas</string>
+    <string name="title_selections">Elementos de seleccion</string>
+    <string name="info_textfields">Estos son componentes de UI los cuals puede actuar como campo de texto para escribir y editar
+        informacion, el widget principal para la entrada de texto. <b>EditText</b> es el campo en el cual se puede escribir, lo que se
+        escribe puede ser guardafdo y/o almacenado para el futuro</string>
+    <string name="info_buttons">Permiten ejecutar acciones designadas al dar click en ellos</string>
+    <string name="info_selections">Componentes de UI los cuales nos permiten elejir una o varias opciones, dentro de estos se encuentran:
+        <b>CheckBox</b> (verificacion), <b>RadioButtons</b> (seleccion unica) y <b>Switches</b> (Activacion)</string>
+    <string name="info_lists"><b>RecyclerView</b> es un componente de objetos usado para mostrar grupos largos de informacion de manera agrupada, en el
+        cual se pueden definir los valores a mostrar usando el Fragment
+    </string>
+    <string name="info_info">Estos incluyen componentes de UI como <b>TextView</b>, <b>ImageView</b> y <b>ProgressBar</b>
+        los cuales son usados y organizados como recursos para mostrar informacion dentro del fragment o activity. Un
+        ejemplo es este TextView donde se muestra la descripcion
+    </string>
+</resources>
