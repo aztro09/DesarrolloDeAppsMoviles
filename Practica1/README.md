@@ -7,7 +7,12 @@ Se instalo Android Studio siguiendo las instrucciones de la pagina oficial:
 Posteriormente se pide la instalacion de varias dependencias, en este caso Node.js, Git, Github y el JDK ya se encontraban instaladas en mi equipo, por el otro lado, Maven, Flutter y Docker no.
 ### Instalacion de Flutter
 Ingresamos a la pagina oficial de [Flutter](https://docs.flutter.dev/) y seleccionamos el boton que dice "Get Started", selccionamos "Windows" y luego "Android". Finalmente seguimos las instrucciones de la pagina:
-<img width="1502" height="809" alt="image" src="https://github.com/user-attachments/assets/efdeb8b5-b200-44bf-8e61-14e3f92ad33f" />
+<img width="1502" height="809" alt="image" src="https://github.com/user-attachments/assets/efdeb8b5-b200-44bf-8e61-14e3f92ad33f" />.
+
+Para el desarrollo de las apps seleccionaremos Android Studio como IDE, como este ya esta descargado se hara la configuracion de este para un buen desarrollo de las apps. Se abrira Android Studio y en la ventana de bienvenida nos iremos a la seccion de "Plugins" y buscaremos "Flutter" y lo instalaremos:
+<img width="989" height="254" alt="image" src="https://github.com/user-attachments/assets/11994394-2c32-4d4d-b77d-6efaeffe41f6" />
+Despues del reinicio que nos pedira luego de la descarga, deberemos de revisar que el plugin de "Dart" este instalado, en caso de que no se debera de instalar.
+
 
 ### Instalacion de Docker
 Para docker ingresaremos al link de las instrucciones para descargar [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/). En mi caso, una vez dentro de la pagina se seleccionara el .exe para la version de Docker x86-64:
