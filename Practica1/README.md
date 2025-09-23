@@ -8,10 +8,6 @@
 <img width="381" height="847" alt="image" src="https://github.com/user-attachments/assets/b3de9ea0-c172-4910-94ea-13a72a095c3a" />
 
 
-
-
-
-
 ## Ejercicio 1
 Se instalo Android Studio siguiendo las instrucciones de la pagina oficial:
 <img width="930" height="587" alt="image" src="https://github.com/user-attachments/assets/78bd15b2-aa3c-46fb-a158-2ec756cbf5fd" />
@@ -24,6 +20,12 @@ Ingresamos a la pagina oficial de [Flutter](https://docs.flutter.dev/) y selecci
 Para el desarrollo de las apps seleccionaremos Android Studio como IDE, como este ya esta descargado se hara la configuracion de este para un buen desarrollo de las apps. Se abrira Android Studio y en la ventana de bienvenida nos iremos a la seccion de "Plugins" y buscaremos "Flutter" y lo instalaremos:
 <img width="989" height="254" alt="image" src="https://github.com/user-attachments/assets/11994394-2c32-4d4d-b77d-6efaeffe41f6" />
 Despues del reinicio que nos pedira luego de la descarga, deberemos de revisar que el plugin de "Dart" este instalado, en caso de que no se debera de instalar.
+
+Una vez instalado se debera de asegurar el tener las dependencias necesarias, las cuales se pueden observar al escribir `flutter doctor` en la terminal de windows, en mi caso al correr esto mostro que faltaba Visual Studio, por lo que se debio de instalar.
+<img width="1080" height="257" alt="image" src="https://github.com/user-attachments/assets/6a9bc1e3-df65-422e-bdd7-40896dfc63f4" />
+
+Ya que este todo instalado y listo y se tenga creado el proyecto de flutter en android studio, se correra para observar el demo con el find e verificar el funcionamiento del IDE y la correcta configuracion de flutter, la demo es la que se muestra en la siguiente imagen:
+<img width="602" height="713" alt="image" src="https://github.com/user-attachments/assets/6068b183-bcaf-4cdb-9beb-a99ed57e401c" />
 
 
 ### Instalacion de Docker
