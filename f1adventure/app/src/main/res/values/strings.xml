@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">f1adventure</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Bienvenido</string>
+    <string name="title_track">Pistas</string>
+    <string name="title_lists">Pistas y Pilotos</string>
+    <string name="title_details">Detalles de la Pista</string>
+    <string name="welcome_text">Bienvenido a la F1 Aventura</string>
+    <string name="btn_start">Ver Pistas</string>
+    <string name="btn_details">Detalles de Pista</string>
 </resources>
