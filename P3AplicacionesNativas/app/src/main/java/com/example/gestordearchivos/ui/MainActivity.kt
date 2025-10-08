@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gestordearchivos.utils.FileUtils
 import com.example.gestordearchivos.R
+import com.example.gestordearchivos.ui.FileAdapter
 
 class MainActivity : ComponentActivity() {
    private lateinit var recyclerView: RecyclerView
-   private lateinit var adapter: Adapter
+   private lateinit var adapter: FileAdapter
    private lateinit var pathText: TextView
 
    private val openFolderLauncher = registerForActivityResult(ActivityResultContracts.OpenDocumentTree()){ uri ->
@@ -31,7 +32,31 @@ class MainActivity : ComponentActivity() {
 
         pathText = findViewById(R.id.pathText)
         recyclerView = findViewById(R.id.fileRecyclerView)
-        adapter = FileAdapter()
+        adapter = FileAdapter { file ->
+            if(file.isDirectory){
+                val files = FileUtils.listFiles(this, file.uri)
+                pathText.text = file.uri.path
+            } else{
+                when (file.mimeType){
+                    "text/plain", "application/json", "application/xml" -> {
+                        val intent = Intent(this, TextViewerActivity::class.java)
+                        intent.putExtra("fileUri", file.uri)
+                        startActivity(intent)
+                    }
+                    "image/jpeg", "image/png", "image/gif" -> {
+                        val intent = Intent(this, ImageViewerActivity::class.java)
+                        intent.putExtra("fileUri", file.uri)
+                        startActivity(intent)
+                    }
+                    else -> {
+                        val intent = Intent(Intent.ACTION_VIEW)
+                        intent.setDataAndType(file.uri, file.mimeType)
+                        intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+                        startActivity(Intent.createChooser(intent, "Abrir con..."))
+                    }
+                }
+            }
+        }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
