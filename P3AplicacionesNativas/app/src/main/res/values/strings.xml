@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">GestorDeArchivos</string>
     <string name="fileName_text">Nombre del archivo</string>
+    <string name="favourites_text">Ruta actual: Favoritos</string>
+    <string name="button_openFav">Favoritos</string>
+    <string name="button_openRecents">Recientes</string>"
 </resources>

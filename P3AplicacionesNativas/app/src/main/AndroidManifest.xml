@@ -31,6 +31,10 @@
             android:name=".ui.ImageViewerActivity"
             android:exported="true"
             android:label="Visor de Imagenes"/>
+        <activity
+            android:name=".ui.FavouritesActivity"/>
+        <activity
+            android:name=".ui.RecentsActivity"/>
     </application>
 
 </manifest>

@@ -8,8 +8,6 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    @drawable/ic_file_black
-
     <TextView
         android:id="@+id/fileName"
         android:layout_width="wrap_content"
@@ -17,4 +15,14 @@
         android:layout_marginStart="8dp"
         android:text="@string/fileName_text"
         android:textSize="14sp"/>
+    <ImageView
+        android:id="@+id/fileIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_file_black"
+        android:contentDescription="Icono de archivo"/>
+    <ImageButton
+        android:id="@+id/favouriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height=""/>
 </LinearLayout>
