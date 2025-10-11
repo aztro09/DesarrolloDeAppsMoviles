@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">GestorDeArchivos</string>
     <string name="fileName_text">Nombre del archivo</string>
-    <string name="favourites_text">Ruta actual: Favoritos</string>
+    <string name="favourites_text">Ruta actual:</string>
+    <string name="text_themeSelection">Selecciona un tema</string>
+    <string name="text_guindaTheme">Tema Guinda</string>
+    <string name="text_escomTheme">Tema Azul</string>
+    <string name="text_saveTheme">Guardar Tema</string>
+    <string name="text_settings">Configuracion</string>
+    <string name="text_actionFavourites">Agregar a Favoritos</string>
+    <string name="text_actionRecents">Ver Recientes</string>
     <string name="button_openFav">Favoritos</string>
     <string name="button_openRecents">Recientes</string>"
 </resources>

@@ -2,11 +2,14 @@ package com.example.gestordearchivos.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.lifecycleScope
@@ -19,7 +22,7 @@ import com.example.gestordearchivos.data.RecentFileEntity
 import com.example.gestordearchivos.ui.FileAdapter
 import kotlinx.coroutines.launch
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
    private lateinit var recyclerView: RecyclerView
    private lateinit var adapter: FileAdapter
    private lateinit var pathText: TextView
@@ -33,7 +36,35 @@ class MainActivity : ComponentActivity() {
        }
    }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.action_favourite -> {
+                startActivity(Intent(this, FavouritesActivity::class.java))
+                true
+            } R.id.action_recents -> {
+                startActivity(Intent(this, RecentsActivity::class.java))
+                true
+            }R.id.action_settings -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
+                true
+            } else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+        val theme = prefs.getString("app_theme", "guinda")
+
+        if (theme == "guinda"){
+            setTheme(R.style.Theme_GestorDeArchivo_Guinda)
+        } else{
+            setTheme(R.style.Theme_GestorDeArchivo_Azul)
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -43,6 +74,9 @@ class MainActivity : ComponentActivity() {
         findViewById<Button>(R.id.openRecentsButton).setOnClickListener {
             startActivity(Intent(this, RecentsActivity::class.java))
         }
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.mainToolbar)
+        setSupportActionBar(toolbar)
+
         val db = AppDatabase.getInstance(this)
         val dao = db.fileDao()
 

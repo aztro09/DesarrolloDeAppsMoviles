@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_favourite"
+        android:title="@string/text_actionFavourites"
+        android:icon="@drawable/ic_favourites"/>
+    <item
+        android:id="@+id/action_recents"
+        android:title="@string/text_actionRecents"
+        android:icon="@drawable/ic_history"/>
+   <item
+       android:id="@+id/action_settings"
+       android:title="@string/text_settings"
+       android:icon="@drawable/ic_settings"/>
+</menu>
