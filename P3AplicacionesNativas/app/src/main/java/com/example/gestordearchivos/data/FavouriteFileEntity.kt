@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class FavouriteFileEntity(
     @PrimaryKey val uri: String,
     val name: String,
-    val location: Long
+    val location: Long,
 )

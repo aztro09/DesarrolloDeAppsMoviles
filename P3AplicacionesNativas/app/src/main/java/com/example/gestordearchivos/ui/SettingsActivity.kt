@@ -13,6 +13,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var saveButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 

@@ -21,7 +21,7 @@ interface FileDAO {
     @Query("DELETE FROM favourite_files WHERE uri = :uri")
     suspend fun removeFavourite(uri: String)
 
-    @Query("SELECT * FROM favourite_files ORDER BY addedAt DESC")
+    @Query("SELECT * FROM favourite_files ORDER BY location DESC")
     suspend fun getFavourites(): List<FavouriteFileEntity>
 
     @Query("SELECT EXISTS(SELECT 1 FROM favourite_files WHERE uri = :uri)")

@@ -11,7 +11,8 @@
         android:text="@string/text_themeSelection"
         android:textSize="16sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorPrimary" />
     <RadioGroup
         android:id="@+id/themeSelector"
         android:layout_width="0dp"
@@ -45,6 +46,8 @@
         android:text="@string/text_saveTheme"
         app:layout_constraintTop_toBottomOf="@+id/themeSelector"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

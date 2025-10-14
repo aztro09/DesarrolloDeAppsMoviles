@@ -1,12 +1,14 @@
 <resources
     xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.GestorDeArchivo.Guinda" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.GestorDeArchivo.Guinda"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/guinda_ipn</item>
         <item name="colorPrimaryVariant">@color/guinda_ipn</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
     </style>
 
-    <style name="Theme.GestorDeArchivo.Azul" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.GestorDeArchivo.Azul"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/azul_escom</item>
         <item name="colorPrimaryVariant">@color/azul_escom</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>

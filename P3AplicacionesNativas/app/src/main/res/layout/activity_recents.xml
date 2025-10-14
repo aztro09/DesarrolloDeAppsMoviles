@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:text="@string/favourites_text"
         android:padding="8dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fileRecyclerView"

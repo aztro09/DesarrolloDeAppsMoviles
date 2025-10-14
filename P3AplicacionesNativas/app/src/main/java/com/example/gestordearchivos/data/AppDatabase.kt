@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [RecentFileEntity::class, FavouriteFileEntity::class], version = 1)
+@Database(entities = [RecentFileEntity::class, FavouriteFileEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase(){
     abstract fun fileDao(): FileDAO
 

@@ -20,18 +20,23 @@
         android:layout_height="wrap_content"
         android:text="@string/favourites_text"
         android:padding="8dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"/>
 
     <Button
         android:id="@+id/openFavouritesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_openFav"/>
+        android:text="@string/button_openFav"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"/>
     <Button
         android:id="@+id/openRecentsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_openRecents"/>
+        android:text="@string/button_openRecents"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fileRecyclerView"
