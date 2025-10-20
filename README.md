@@ -8,5 +8,5 @@
 ### [Practica 1](https://github.com/aztro09/DesarrolloDeAppsMoviles/tree/109c369d728de7082ea4ddf2f2b12ae7774426a4/Practica1) , en [Flutter](https://github.com/aztro09/DesarrolloDeAppsMoviles/tree/094bb22368930fcdc0da632a0a78b98b90feb4c3/Practica1Flutter)
 ### [Practica 2](https://github.com/aztro09/DesarrolloDeAppsMoviles/tree/30a117482c1d3bbafdcb63d1a45d652aebf66583/Practica2)
 
-### Actividades
+## Actividades
 ### [Actividad 4 'Juego de dos personas'](https://github.com/aztro09/DesarrolloDeAppsMoviles/tree/9d411a576f49b87656b50fbfe5eda11b390a3fff/Actividad4)
