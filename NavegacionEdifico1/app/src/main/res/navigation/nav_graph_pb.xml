@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_pb">
+
+    <fragment
+        android:id="@+id/salon1001Fragment"
+        android:name="com.example.navegacionedifico1.fragments.pb.salon1001Fragment"
+        android:label = "Salon 1001"/>
+
+</navigation>

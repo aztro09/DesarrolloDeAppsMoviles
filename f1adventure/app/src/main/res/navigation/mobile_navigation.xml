@@ -10,13 +10,21 @@
         android:id="@+id/navigation_menu"
         android:name="com.example.f1adventure.fragments.FragmentMenu"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_navigation_menu_to_navigation_track"
+            app:destination="@id/navigation_track" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_track"
         android:name="com.example.f1adventure.fragments.FragmentTrack"
         android:label="@string/title_track"
-        tools:layout="@layout/fragment_track" />
+        tools:layout="@layout/fragment_track" >
+        <action
+            android:id="@+id/action_navigation_track_to_navigation_details"
+            app:destination="@id/navigation_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_details"

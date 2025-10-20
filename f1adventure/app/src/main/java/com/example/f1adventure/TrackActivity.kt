@@ -10,7 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.f1adventure.fragments.FragmentTrack
 
-class TrackAdapter(private val trackList: List<Track>): RecyclerView.Adapter<TrackAdapter.TrackViewHolder>(){
+class TrackAdapter(
+    private val trackList: List<Track>,
+    private val onItemClicked: (Track) -> Unit
+): RecyclerView.Adapter<TrackAdapter.TrackViewHolder>(){
     class TrackViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val name: TextView = itemView.findViewById(R.id.track_name)
         val location: TextView = itemView.findViewById(R.id.track_location)
@@ -30,19 +33,7 @@ class TrackAdapter(private val trackList: List<Track>): RecyclerView.Adapter<Tra
         holder.details.text = "Longitud ${track.lengthKm} kms | Curvas: ${track.turns} | Desde: ${track.firstRace} \n" +
                 "Mejor piloto: ${track.bestDriver} \n ${track.characteristics}"
         holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            val intent = Intent(context, DetailActivity::class.java).apply {
-                putExtra("track_name", track.name)
-                putExtra("track_location", track.location)
-                putExtra("track_length", track.lengthKm)
-                putExtra("track_turns", track.turns)
-                putExtra("track_year", track.firstRace)
-                putExtra("track_driver", track.bestDriver)
-                putExtra("track_info", track.characteristics)
-                putExtra("track_image", track.trackImageRes)
-                putExtra("driver_image", track.driverImageRes)
-            }
-            context.startActivity(intent)
+            onItemClicked(track)
         }
     }
 

@@ -7,4 +7,6 @@
     <string name="welcome_text">Bienvenido a la F1 Aventura</string>
     <string name="btn_start">Ver Pistas</string>
     <string name="btn_details">Detalles de Pista</string>
+    <string name="info_app">Explora los circuitos mas iconicos del muno, adentrate en cada pista y descuvre sus secretos: desde los records historicos hasta los pilotos que han dehado huella en cada curva.
+                            Sumergete en esta experiencia interactiva, conoce los detalles de cada trazado y conoce la historia del automovilismo</string>
 </resources>

@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/track_location"
         android:textSize="14sp"
-        android:textColor="#666"
+        android:textColor="@color/secondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

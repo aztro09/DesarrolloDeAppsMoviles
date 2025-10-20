@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -50,13 +49,21 @@ class FragmentTrack : Fragment(){
                 R.drawable.nurburgring, R.drawable.schumacher)
         )
 
-        adapter = TrackAdapter(tracks)
-        recyclerView.adapter = adapter
-
-        val button = view.findViewById<Button>(R.id.btn_details)
-        button.setOnClickListener{
-            startActivity(Intent(activity, DetailActivity::class.java))
+        adapter = TrackAdapter(tracks) { track ->
+            val intent = Intent(activity, DetailActivity::class.java).apply {
+                putExtra("track_name", track.name)
+                putExtra("track_location", track.location)
+                putExtra("track_length", track.lengthKm)
+                putExtra("track_turns", track.turns)
+                putExtra("track_year", track.firstRace)
+                putExtra("track_driver", track.bestDriver)
+                putExtra("track_info", track.characteristics)
+                putExtra("track_image", track.trackImageRes)
+                putExtra("driver_image", track.driverImageRes)
+            }
+            startActivity(intent)
         }
+        recyclerView.adapter = adapter
 
         return view
     }
