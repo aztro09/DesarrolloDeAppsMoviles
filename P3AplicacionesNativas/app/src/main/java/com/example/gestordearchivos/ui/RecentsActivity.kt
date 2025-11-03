@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.lifecycleScope
 import com.example.gestordearchivos.data.AppDatabase
 import com.example.gestordearchivos.R
+import com.example.gestordearchivos.data.FavouriteFileEntity
 import com.example.gestordearchivos.data.FileDAO
 import com.example.gestordearchivos.data.FileModel
+import com.example.gestordearchivos.data.RecentFileEntity
 import kotlinx.coroutines.launch
-
 
 class RecentsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -54,11 +55,23 @@ class RecentsActivity : AppCompatActivity() {
                             "Eliminado de favoritos",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val updatedList = dao.getFavourites().map {
-                            FileModel(it.name, Uri.parse(it.uri), false, 0L, 0L, null)
-                        }
-                        adapter.submitList(updatedList)
+                    } else {
+                        val favouriteFile = FavouriteFileEntity(
+                            uri = file.uri.toString(),
+                            name = file.name,
+                            location = System.currentTimeMillis()
+                        )
+                        dao.addFavourite(favouriteFile)
+                        Toast.makeText(
+                            this@RecentsActivity,
+                            "Agregado a favoritos",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
+                    val updatedList = dao.getFavourites().map {
+                        FileModel(it.name, Uri.parse(it.uri), false, 0L, 0L, null)
+                    }
+                    adapter.submitList(updatedList)
                 }
             }
         )

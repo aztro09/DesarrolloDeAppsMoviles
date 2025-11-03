@@ -1,10 +1,8 @@
 package com.example.gestordearchivos.ui
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestordearchivos.R
 
@@ -13,6 +11,14 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var saveButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Aplicar el tema antes de setContentView
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+        val currentTheme = prefs.getString("app_theme", "guinda")
+        if (currentTheme == "guinda") {
+            setTheme(R.style.Theme_GestorDeArchivo_Guinda)
+        } else {
+            setTheme(R.style.Theme_GestorDeArchivo_Azul)
+        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -20,12 +26,9 @@ class SettingsActivity : AppCompatActivity() {
         themeSelector = findViewById(R.id.themeSelector)
         saveButton = findViewById(R.id.saveThemeButton)
 
-        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
-        val currentTheme = prefs.getString("app_theme", "guinda")
-
-        if(currentTheme == "guinda"){
+        if (currentTheme == "guinda") {
             themeSelector.check(R.id.guindaTheme)
-        }else{
+        } else {
             themeSelector.check(R.id.azulTheme)
         }
 
@@ -35,8 +38,11 @@ class SettingsActivity : AppCompatActivity() {
                 R.id.azulTheme -> "azul"
                 else -> "guinda"
             }
-            prefs.edit().putString("app_theme", selectedTheme).apply()
-            Toast.makeText(this, "Tema guardado. Reinicia para aplicar los cambios.", Toast.LENGTH_SHORT).show()
+
+            if (selectedTheme != currentTheme) {
+                prefs.edit().putString("app_theme", selectedTheme).apply()
+                recreate() // Recarga la actividad con el nuevo tema
+            }
         }
     }
 }

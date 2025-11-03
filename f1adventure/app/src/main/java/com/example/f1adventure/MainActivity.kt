@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         navView.setOnItemSelectedListener { item ->
             val fragment = when (item.itemId){
-                R.id.nav_menu -> FragmentMenu()
+                R.id.nav_home -> FragmentMenu()
                 R.id.nav_tracks -> FragmentTrack()
                 R.id.nav_details -> FragmentDetails()
                 else -> null
