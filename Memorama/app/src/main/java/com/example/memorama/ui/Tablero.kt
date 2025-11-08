@@ -1,3 +1,4 @@
+import Carta
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -7,7 +8,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.memorama.ui.CartaItem
+import com.example.memorama.model.CartaItem
 
 @Composable
 fun Tablero(cartas: List<Carta>, onCartaClick: (Int) -> Unit) {

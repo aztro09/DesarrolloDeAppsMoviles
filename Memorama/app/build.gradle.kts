@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         compose = true
+        dataBinding = false
     }
     composeOptions{
         kotlinCompilerExtensionVersion = "1.5.14"
@@ -52,6 +53,8 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.runtime)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.room.compiler)
+    implementation(libs.androidx.datastore.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
