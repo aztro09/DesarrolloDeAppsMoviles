@@ -1,20 +1,23 @@
-import EstadisticasPartidas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Modifier.*
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.memorama.viewmodel.*
+import EstadisticasPartidas
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HistorialPartidasScreen(viewModel: HistorialPartidasViewModel = viewModel()){
+fun HistorialPartidasScreen(navController: NavHostController, viewModel: HistorialPartidasViewModel = viewModel()){
     val partidas by viewModel.partidas.collectAsState()
     val context = LocalContext.current
 
@@ -27,8 +30,8 @@ fun HistorialPartidasScreen(viewModel: HistorialPartidasViewModel = viewModel())
         Spacer(modifier = Modifier.height(16.dp))
 
         LazyColumn {
-            Card(
             items(partidas){partida ->
+                Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 4.dp),

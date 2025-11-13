@@ -9,6 +9,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -22,9 +23,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun ConfiguracionTemaScreen(
-    context: Context = LocalContext.current,
     onTemaSeleccionado: () -> Unit
 ){
+    val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val temas = listOf("guinda", "azul", "claro", "oscuro")
     val temaPreview = mapOf(

@@ -5,12 +5,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.memorama.theme.ThemeManager
 import com.example.memorama.viewmodel.MemoramaViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun PantallaJuego(viewModel: MemoramaViewModel = viewModel()) {
+fun PantallaJuego(navController: NavController, viewModel: MemoramaViewModel = viewModel()) {
     val estado by viewModel.estadoJuego.collectAsState()
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -73,6 +74,10 @@ fun PantallaJuego(viewModel: MemoramaViewModel = viewModel()) {
         Button(onClick =  {
             navController.navigate("configuracion_tema")}) {
             Text("Configurar tema")
+        }
+
+        Button(onClick = {navController.navigate("historial")}) {
+            Text("Ver historial de partidas")
         }
     }
 

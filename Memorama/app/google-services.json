@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "595860254027",
+    "project_id": "memorama-21681",
+    "storage_bucket": "memorama-21681.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595860254027:android:f6c6f7ac684089666f4cce",
+        "android_client_info": {
+          "package_name": "com.example.memorama"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB0FZik9DKjg7cjvHfuQfmS8pAG1a8XfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
