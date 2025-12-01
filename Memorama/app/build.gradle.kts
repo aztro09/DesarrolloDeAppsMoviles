@@ -46,38 +46,54 @@ android {
 }
 
 dependencies {
-
+    // --- Core Android ---
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
+
+    // --- Room & DataStore ---
     implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.material3)
     implementation(libs.androidx.room.compiler) {
         exclude(group = "com.intellij", module = "annotations")
     }
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    //compose
+    // Datastore (Preferencias y Core)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.datastore.core)
+    implementation(libs.protolite.well.known.types)
+
+    // --- Coroutines ---
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // --- Compose & Material 3 ---
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.navigation.compose)
-    // UI y Material3
+
+    // UI, Tooling y Foundation
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.foundation)
 
-    // ViewModel y Lifecycle
+    // Material 3
+    implementation(libs.androidx.compose.material3)
+
+    // Iconos Extendidos (CORREGIDO)
+    // Nota: Si agregaste la linea al TOML usa: implementation(libs.androidx.material.icons.extended)
+    // Si no, usa esta línea directa que funcionará con el BOM:
+    implementation("androidx.compose.material:material-icons-extended")
+
+    // --- Navegación y Ciclo de Vida ---
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    // Activity y Navegación
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.navigation.compose)
-
-    //FIREBASE BOM
+    // --- Firebase ---
     implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+    // --- Testing ---
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

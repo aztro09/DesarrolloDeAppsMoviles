@@ -15,7 +15,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.memorama.theme.*
 import com.example.memorama.ui.ConfiguracionTemaScreen
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
