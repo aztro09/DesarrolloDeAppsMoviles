@@ -67,9 +67,7 @@ fun MainScreen(vm: MainViewModel, onOpenHistory: () -> Unit) {
                 Text("Coordenadas actuales:")
                 Text(
                     if (currentLat != null && currentLon != null)
-                        "Lat: %.6f
-Lon: %.6f
-Precisión: ±%d m".format(currentLat, currentLon, currentAcc.toInt())
+                        "Lat: %.6f Lon: %.6f Precisión: ±%d m".format(currentLat, currentLon, currentAcc.toInt())
                     else "Sin datos aún…"
                 )
 
