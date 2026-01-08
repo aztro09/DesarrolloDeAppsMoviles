@@ -16,6 +16,7 @@ import com.andres.rastreador.ui.HistoryViewModel
 import com.andres.rastreador.ui.screens.HistoryScreen
 import com.andres.rastreador.ui.screens.MainScreen
 import com.andres.rastreador.ui.theme.AppTheme
+import androidx.compose.runtime.collectAsState
 
 class MainActivity : ComponentActivity() {
 
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
         requestInitialPermissions()
 
         setContent {
-            val theme = mainVM.theme.value
+            val theme = mainVM.theme.collectAsState().value
             AppTheme(themeName = theme) {
                 val nav = rememberNavController()
                 NavHost(navController = nav, startDestination = "main") {
