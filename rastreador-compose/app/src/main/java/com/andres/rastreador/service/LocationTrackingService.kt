@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.IBinder
 import android.util.Log
-import androidx.annotation.RequiresPermission
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -18,11 +17,9 @@ import com.andres.rastreador.data.AppDatabase
 import com.andres.rastreador.data.LocationRepository
 import com.andres.rastreador.prefs.PreferencesRepository
 import com.andres.rastreador.cloud.FirestoreSync
-import com.andres.rastreador.data.LocationEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
@@ -50,7 +47,7 @@ class LocationTrackingService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        scope.launch @androidx.annotation.RequiresPermission(allOf = [android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION]) {
+        scope.launch {
             val intervalMs = try { prefs.intervalMsFlow.first() } catch (_: Throwable) { 10_000L }
             startTracking(intervalMs)
             prefs.setTrackingActive(true)
@@ -58,7 +55,6 @@ class LocationTrackingService : Service() {
         return START_STICKY
     }
 
-    @RequiresPermission(allOf = [Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION])
     private suspend fun startTracking(intervalMs: Long) {
         if (!hasLocationPermission()) {
             Log.w("Service", "Permisos de ubicación no concedidos")
@@ -82,8 +78,7 @@ class LocationTrackingService : Service() {
                 latestContent = "(${"%.6f".format(lat)}, ${"%.6f".format(lon)}) • ±${acc.roundToInt()} m"
                 scope.launch {
                     repo.insert(lat, lon, acc, ts)
-                    // Subir a Firestore en tiempo real
-                    try { cloud.uploadLocation(LocationEntity(latitude = lat, longitude = lon, accuracy = acc, timestamp = ts)) } catch (_: Throwable) {}
+                    try { cloud.uploadLocation(com.andres.rastreador.data.LocationEntity(latitude = lat, longitude = lon, accuracy = acc, timestamp = ts)) } catch (_: Throwable) {}
                 }
                 scope.launch {
                     val discreta = try { prefs.notifDiscretaFlow.first() } catch (_: Throwable) { true }

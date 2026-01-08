@@ -16,8 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.andres.rastreador.data.LocationEntity
 import com.andres.rastreador.ui.HistoryViewModel
 import com.andres.rastreador.ui.MainViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
 import java.text.SimpleDateFormat
@@ -33,9 +31,7 @@ fun HistoryScreen(vm: MainViewModel, hvm: HistoryViewModel, onBack: () -> Unit) 
         TopAppBar(
             title = { Text("Historial de ubicaciones") },
             navigationIcon = { TextButton(onClick = onBack) { Text("← Atrás") } },
-            actions = {
-                TextButton(onClick = { hvm.clear() }) { Text("Limpiar historial") }
-            }
+            actions = { TextButton(onClick = { hvm.clear() }) { Text("Limpiar historial") } }
         )
     }) { padding ->
         LazyColumn(Modifier.padding(padding).padding(horizontal = 8.dp)) {

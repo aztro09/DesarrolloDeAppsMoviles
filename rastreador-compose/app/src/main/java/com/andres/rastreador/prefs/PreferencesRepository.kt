@@ -13,7 +13,7 @@ private val Context.dataStore by preferencesDataStore("settings")
 
 object Keys {
     val INTERVAL_MS = longPreferencesKey("interval_ms")
-    val THEME = stringPreferencesKey("theme") // "GUINDA" | "AZUL"
+    val THEME = stringPreferencesKey("theme")
     val NOTIF_DISCRETA = booleanPreferencesKey("notif_discreta")
     val TRACKING_ACTIVE = booleanPreferencesKey("tracking_active")
 }

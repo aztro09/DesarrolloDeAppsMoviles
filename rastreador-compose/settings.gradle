@@ -15,5 +15,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "rastreador-compose"
+rootProject.name = "rastreador-compose-openmaps"
 include(":app")

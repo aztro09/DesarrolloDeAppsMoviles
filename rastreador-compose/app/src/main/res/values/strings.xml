@@ -1,5 +1,4 @@
 
 <resources>
     <string name="app_name">Rastreador</string>
-    <string name="google_maps_key">PON_TU_API_KEY_DE_MAPS_AQUI</string>
 </resources>

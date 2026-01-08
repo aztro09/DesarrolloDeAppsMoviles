@@ -7,16 +7,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.andres.rastreador.ui.MainViewModel
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.compose.GoogleMap
-import com.google.maps.android.compose.MapProperties
-import com.google.maps.android.compose.MapUiSettings
-import com.google.maps.android.compose.Marker
-import com.google.maps.android.compose.MarkerState
-import com.google.maps.android.compose.Polyline
-import com.google.maps.android.compose.rememberCameraPositionState
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
+import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.Marker
+import org.osmdroid.views.overlay.Polyline
 import kotlinx.coroutines.launch
 
 @Composable
@@ -35,39 +32,45 @@ fun MainScreen(vm: MainViewModel, onOpenHistory: () -> Unit) {
     val currentAcc = current?.accuracy ?: 0f
 
     Column(Modifier.fillMaxSize()) {
-        val cameraPositionState = rememberCameraPositionState()
-        LaunchedEffect(currentLat, currentLon) {
-            if (currentLat != null && currentLon != null) {
-                cameraPositionState.animate(
-                    update = CameraUpdateFactory.newLatLngZoom(LatLng(currentLat, currentLon), 17f)
-                )
-            }
-        }
-        GoogleMap(
+        AndroidView(
             modifier = Modifier.weight(1f),
-            cameraPositionState = cameraPositionState,
-            uiSettings = MapUiSettings(zoomControlsEnabled = true),
-            properties = MapProperties(isMyLocationEnabled = true)
-        ) {
-            if (currentLat != null && currentLon != null) {
-                Marker(
-                    state = MarkerState(position = LatLng(currentLat, currentLon)),
-                    title = "Posición actual",
-                    snippet = "Precisión: ±${currentAcc.toInt()} m"
-                )
+            factory = { ctx ->
+                MapView(ctx).apply {
+                    setMultiTouchControls(true)
+                    setTileSource(TileSourceFactory.MAPNIK)
+                    controller.setZoom(17.0)
+                }
+            },
+            update = { mapView ->
+                mapView.overlays.clear()
+                if (currentLat != null && currentLon != null) {
+                    val geo = GeoPoint(currentLat, currentLon)
+                    mapView.controller.setCenter(geo)
+                    val marker = Marker(mapView)
+                    marker.position = geo
+                    marker.title = "Posición actual"
+                    marker.subDescription = "Precisión: ±${currentAcc.toInt()} m"
+                    marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                    mapView.overlays.add(marker)
+                }
+                if (locations.size >= 2) {
+                    val polyline = Polyline().apply {
+                        setPoints(locations.map { GeoPoint(it.latitude, it.longitude) })
+                    }
+                    mapView.overlays.add(polyline)
+                }
+                mapView.invalidate()
             }
-            val points = locations.map { LatLng(it.latitude, it.longitude) }
-            if (points.size >= 2) {
-                Polyline(points = points)
-            }
-        }
+        )
 
         Card(Modifier.fillMaxWidth()) {
             Column(Modifier.padding(12.dp)) {
                 Text("Coordenadas actuales:")
                 Text(
                     if (currentLat != null && currentLon != null)
-                        "Lat: %.6f Lon: %.6f Precisión: ±%d m".format(currentLat, currentLon, currentAcc.toInt())
+                        "Lat: %.6f
+Lon: %.6f
+Precisión: ±%d m".format(currentLat, currentLon, currentAcc.toInt())
                     else "Sin datos aún…"
                 )
 

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "681769511892",
-    "project_id": "com-andres-rastreador",
-    "storage_bucket": "com-andres-rastreador.firebasestorage.app"
+    "project_number": "288691526046",
+    "project_id": "com-andres-rastreador-c42f7",
+    "storage_bucket": "com-andres-rastreador-c42f7.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:681769511892:android:43849b77f305e2bfea4441",
+        "mobilesdk_app_id": "1:288691526046:android:6b436d3ea2966bb2bd1e8f",
         "android_client_info": {
           "package_name": "com.andres.rastreador"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCv8AUTy_MnhmOMfpiHgm1QX8gpDl62QIM"
+          "current_key": "AIzaSyACt4jBYD70ZNODgyM-DQoS-LBJLPzW7JU"
         }
       ],
       "services": {

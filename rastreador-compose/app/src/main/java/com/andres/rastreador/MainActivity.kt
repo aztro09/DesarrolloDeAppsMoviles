@@ -8,9 +8,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -27,29 +24,22 @@ class MainActivity : ComponentActivity() {
 
     private val permissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
-    ) { /* opcional: mostrar feedback de permisos */ }
+    ) { }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestInitialPermissions()
 
         setContent {
-            val theme by mainVM.theme.collectAsState()
+            val theme = mainVM.theme.value
             AppTheme(themeName = theme) {
                 val nav = rememberNavController()
                 NavHost(navController = nav, startDestination = "main") {
                     composable("main") {
-                        MainScreen(
-                            vm = mainVM,
-                            onOpenHistory = { nav.navigate("history") }
-                        )
+                        MainScreen(vm = mainVM, onOpenHistory = { nav.navigate("history") })
                     }
                     composable("history") {
-                        HistoryScreen(
-                            vm = mainVM,
-                            hvm = histVM,
-                            onBack = { nav.popBackStack() }
-                        )
+                        HistoryScreen(vm = mainVM, hvm = histVM, onBack = { nav.popBackStack() })
                     }
                 }
             }
